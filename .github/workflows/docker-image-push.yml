@@ -29,7 +29,7 @@ jobs:
         with:
           push: true
           context: .
-          file: ./Dockerfile
+          file: docker/Dockerfile
           tags: |
             ghcr.io/aiden-jeon/github-cicd:latest
             ghcr.io/aiden-jeon/github-cicd:${{ steps.short-sha.outputs.sha }}
