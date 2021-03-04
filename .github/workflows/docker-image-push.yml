@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          context: .
+          context: ./
           file: docker/Dockerfile
           tags: |
             ghcr.io/aiden-jeon/sphinx-api:latest
