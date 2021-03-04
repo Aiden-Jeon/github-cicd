@@ -1,0 +1,27 @@
+replicaCount: 1
+image:
+  repository: ghcr.io/aiden-jeon/sphinx-api
+  tag: dc3c4be
+  pullPolicy: Always
+  pullSecrets: test-ghcr
+service:
+  type: NodePort
+  port: 80
+ingress:
+  enabled: false
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    ingress.kubernetes.io/rewrite-target: /
+  path: /
+  hosts:
+    - host: chart-example.local
+  tls: []
+
+resources: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+autoscaling:
+  enabled: true

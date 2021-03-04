@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: sphinx-doc
+  name: {{ template "sphinx-doc.fullname" . }}
+  labels:
+    app: {{ template "sphinx-doc.name" . }}
+    chart: {{ template "sphinx-doc.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "sphinx-doc.name" . }}
+    release: {{ .Release.Name }}
