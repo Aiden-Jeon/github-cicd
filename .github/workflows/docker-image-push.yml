@@ -31,6 +31,5 @@ jobs:
           context: .
           file: docker/Dockerfile
           tags: |
-            ghcr.io/aiden-jeon/github-cicd:latest
-            ghcr.io/aiden-jeon/github-cicd:${{ steps.short-sha.outputs.sha }}
-
+            ghcr.io/aiden-jeon/sphinx-api:latest
+            ghcr.io/aiden-jeon/sphinx-api:${{ steps.short-sha.outputs.sha }}
