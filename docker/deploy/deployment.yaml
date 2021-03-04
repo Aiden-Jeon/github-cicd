@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sphinx-doc
+spec:
+  selector:
+    matchLabels:
+      type: app
+      service: sphinx-doc
+  template:
+    metadata:
+      labels:
+        type: app
+        service: sphinx-doc
+    spec:
+      containers:
+      - name: sphinx-doc
+        image: ghcr.io/aiden-jeon/sphinx-api:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+        - name: test-ghcr
