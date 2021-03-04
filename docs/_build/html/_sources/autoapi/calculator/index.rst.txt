@@ -1,0 +1,57 @@
+:mod:`calculator`
+=================
+
+.. py:module:: calculator
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   calculator.Calculator
+
+
+
+.. class:: Calculator
+
+   .. method:: add(self, a: float, b: float) -> float
+
+      add given two number
+
+      Examples::
+
+          calculator = Calculator()
+          calculator.add(3, 4)
+
+      :param a:
+      :type a: float
+      :param b:
+      :type b: float
+
+      :returns:
+      :rtype: float
+
+
+   .. method:: mul(self, a: float, b: float) -> float
+
+      multiply given two number
+
+      Examples::
+
+          calculator = Calculator()
+          calculator.mul(3, 4)
+
+      :param a:
+      :type a: floatp
+      :param b:
+      :type b: float
+
+      :returns:
+      :rtype: float
+
+
+
