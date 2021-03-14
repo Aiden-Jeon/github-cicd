@@ -166,47 +166,18 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#calculator.Calculator" title="calculator.Calculator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Calculator</span></code></a></p></td>
-<td><p></p></td>
+<td><p>calcualtor class</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py class">
 <dt id="calculator.Calculator">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">calculator.</span></code><code class="sig-name descname"><span class="pre">Calculator</span></code><a class="headerlink" href="#calculator.Calculator" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py method">
+<dd><p>calcualtor class</p>
+<dl class="py method">
 <dt id="calculator.Calculator.add">
 <code class="sig-name descname"><span class="pre">add</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#calculator.Calculator.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>add given two number</p>
-<p>Examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">calculator</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
-<span class="n">calculator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>a</strong> (<em>float</em>) – </p></li>
-<li><p><strong>b</strong> (<em>float</em>) – </p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>float</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="calculator.Calculator.mul">
-<code class="sig-name descname"><span class="pre">mul</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#calculator.Calculator.mul" title="Permalink to this definition">¶</a></dt>
 <dd><p>multiply given two number</p>
-<p>Examples:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">calculator</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
-<span class="n">calculator</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -221,6 +192,40 @@
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">calculator</span> <span class="kn">import</span> <span class="n">Calculator</span>
+
+<span class="n">calculator</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+<span class="n">calculator</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="calculator.Calculator.mul">
+<code class="sig-name descname"><span class="pre">mul</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">float</span><a class="headerlink" href="#calculator.Calculator.mul" title="Permalink to this definition">¶</a></dt>
+<dd><p>multiply given two number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a</strong> (<em>floatp</em>) – </p></li>
+<li><p><strong>b</strong> (<em>float</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p>Examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">calculator</span> <span class="kn">import</span> <span class="n">Calculator</span>
+
+<span class="n">calculator</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+<span class="n">calculator</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
