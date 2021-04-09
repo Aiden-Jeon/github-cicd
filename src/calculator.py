@@ -5,7 +5,7 @@ class Calculator:
 
         Parameters
         ----------
-        a : floatp
+        a : float
         b : float
 
         Returns
@@ -27,7 +27,7 @@ class Calculator:
 
         Parameters
         ----------
-        a : floatp
+        a : float
         b : float
 
         Returns
