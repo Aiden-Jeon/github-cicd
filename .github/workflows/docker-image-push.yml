@@ -33,3 +33,38 @@ jobs:
           tags: |
             ghcr.io/aiden-jeon/sphinx-api:latest
             ghcr.io/aiden-jeon/sphinx-api:${{ steps.short-sha.outputs.sha }}
+  docker-image-cd:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Create short SHA
+        uses: benjlevesque/short-sha@v1.2
+        id: short-sha
+      - name: Checkout deploy repo
+        uses: actions/checkout@v2
+        with:
+          repository: aiden-jeon/github-cicd
+          token: ${{ secrets.CR_PAT }}
+          path: github-cicd
+      - name: Install yq
+        run: |
+          wget https://github.com/mikefarah/yq/releases/download/v4.4.1/yq_linux_amd64 -O ./yq
+          chmod +x ./yq
+      - name: Change image tag on values.yaml
+        run: |
+          cat ./github-cicd/sphinx-doc/values.yaml | ./yq e '.image.tag="${{ steps.short-sha.outputs.sha }}"' - | tee ./github-cicd/sphinx-doc/values.yaml.tmp
+          mv ./github-cicd/sphinx-doc/values.yaml.tmp ./github-cicd/sphinx-doc/values.yaml
+      - name: Commit file
+        run: |
+          cd github-cicd
+          git config --local user.email "ells2124@gmail.com"
+          git config --local user.name "aiden-jeon"
+          git add ./sphinx-doc/values.yaml
+          git commit -m "Update sphinx-doc image tag."
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          directory: github-cicd
+          repository: aiden-jeon/github-cicd
+          github_token: ${{ secrets.CR_PAT }}
+          branch: doc-pages
+          force: true
