@@ -67,3 +67,4 @@ jobs:
           repository: aiden-jeon/github-cicd
           github_token: ${{ secrets.CR_PAT }}
           branch: doc-pages
+          force: true
