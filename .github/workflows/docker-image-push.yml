@@ -24,6 +24,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.5'
+      - name: Generate html
+        run: |
+          pip install -r requirements-doc.txt
+          cd docs
+          make html
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
