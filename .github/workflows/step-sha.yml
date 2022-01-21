@@ -14,7 +14,7 @@ jobs:
         id: variable
         run: |
           VERSION=1.0.0
-          echo '::set-output name=VERSION::${VERSION}'
+          echo '::set-output name=VERSION::1.0.0'
       - name: echo
         run: |
           echo "${{ steps.variable.outputs.VERSION }}"
