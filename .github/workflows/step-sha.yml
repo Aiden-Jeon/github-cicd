@@ -13,7 +13,7 @@ jobs:
       - name: Make variable
         id: variable
         run: |
-          VERSION=1.0.0
+          VERSION="1.0.0"
           echo '::set-output name=VERSION::1.0.0'
           echo '::set-output name=VERSION_FILE::${VERSION}'
       - name: echo
