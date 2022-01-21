@@ -1,7 +1,7 @@
 replicaCount: 1
 image:
   repository: ghcr.io/aiden-jeon/sphinx-api
-  tag: dc3c4be
+  tag: ff6cd16
   pullPolicy: Always
   pullSecrets: test-ghcr
 service:
@@ -16,12 +16,9 @@ ingress:
   hosts:
     - host: chart-example.local
   tls: []
-
 resources: {}
-
 nodeSelector: {}
 tolerations: []
 affinity: {}
-
 autoscaling:
   enabled: true
