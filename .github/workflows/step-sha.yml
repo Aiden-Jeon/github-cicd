@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  docker-image-ci:
+  generate-version:
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout
@@ -14,6 +14,7 @@ jobs:
         id: variable
         run: |
           VERSION=1.0.0
+          echo '::set-output name=SELECTED_COLOR::${VERSION}'
       - name: echo
         run: |
           echo ${{ steps.variable.outputs.VERSION }}
