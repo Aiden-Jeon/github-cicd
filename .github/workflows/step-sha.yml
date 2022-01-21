@@ -13,10 +13,10 @@ jobs:
       - name: Make variable
         id: variable
         run: |
-          VERSION="1.0.0"
+          VERSION=$"1.0.0"
           echo '::set-output name=VERSION::1.0.0'
           echo '::set-output name=VERSION_FILE::${VERSION}'
       - name: echo
         run: |
-          echo "${{ steps.variable.outputs.VERSION }}"
-          echo "${{ steps.variable.outputs.VERSION_FILE }}"
+          echo "VERSION=${{ steps.variable.outputs.VERSION }}"
+          echo "VERSION_FILE=${{ steps.variable.outputs.VERSION_FILE }}"
