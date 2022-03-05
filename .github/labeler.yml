@@ -1,0 +1,4 @@
+test_source_1:
+- src/test_source_1/*
+test_source_2:
+- src/test_source_2/*
