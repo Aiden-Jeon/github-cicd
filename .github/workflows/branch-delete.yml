@@ -5,12 +5,8 @@ on: [delete, push]
 jobs:
   triage:
     runs-on: ubuntu-latest
-    env:
-      BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
-    - name: tr
-      run: echo ${{ env.BRANCH_NAME }} | tr / -
-    - name: new
+    - name: Get branch name
       run: echo "BRANCH=$(echo ${{ github.head_ref || github.ref_name }} | tr / -)" >> $GITHUB_ENV
     - name: echo
       run: echo ${{ env.BRANCH }}
