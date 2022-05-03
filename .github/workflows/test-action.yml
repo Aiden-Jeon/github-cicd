@@ -1,0 +1,17 @@
+name: "Action on delete"
+
+on: push
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install kubectl
+      uses: azure/setup-kubectl@v2.0
+    - name: Get deleted branch name
+      run: echo "BRANCH_NAME=$(echo ${{ github.event.ref }} | tr / -)" >> $GITHUB_ENV
+    - name: Echo branch name for debug
+      run: echo ${{ env.BRANCH_NAME }}
+    - name: Get pod
+      run: |
+        kubectl get pod
