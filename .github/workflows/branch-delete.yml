@@ -1,0 +1,12 @@
+name: "Action on delete"
+
+on: [delete, push]
+
+jobs:
+  triage:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get branch name
+      run: echo "BRANCH=$(echo ${{ github.head_ref || github.ref_name }} | tr / -)" >> $GITHUB_ENV
+    - name: echo
+      run: echo ${{ env.BRANCH }}
