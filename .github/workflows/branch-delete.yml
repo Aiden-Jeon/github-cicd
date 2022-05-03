@@ -9,4 +9,4 @@ jobs:
       BRANCH_NAME: ${{ github.head_ref || github.ref_name }} 
     steps:
     - name: Checkout
-      run: echo $ {{ BRANCH_NAME }}
+      run: echo ${{ BRANCH_NAME }}
