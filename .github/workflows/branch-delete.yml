@@ -10,6 +10,3 @@ jobs:
     steps:
     - name: Checkout
       run: echo $ {{ BRANCH_NAME }}
-      with:
-        submodules: recursive
-        fetch-depth: 0
