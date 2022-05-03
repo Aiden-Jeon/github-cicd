@@ -1,6 +1,6 @@
 name: "Action on delete"
 
-on: [delete, push]
+on: delete
 
 jobs:
   triage:
@@ -10,3 +10,7 @@ jobs:
       run: echo "BRANCH=$(echo ${{ github.head_ref || github.ref_name }} | tr / -)" >> $GITHUB_ENV
     - name: echo
       run: echo ${{ env.BRANCH }}
+    - name: Get event branch name
+      run: echo "DELETE_BRANCH=$(echo ${{ github.event.ref }} | tr / -)" >> $GITHUB_ENV
+    - name: echo
+      run: echo ${{ env.DELETE_BRANCH }}
