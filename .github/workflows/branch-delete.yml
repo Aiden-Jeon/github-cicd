@@ -11,6 +11,6 @@ jobs:
     - name: tr
       run: echo ${{ env.BRANCH_NAME }} | tr / -
     - name: new
-      run: echo "BRANCH=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
+      run: echo "BRANCH=$(echo ${{ github.head_ref || github.ref_name }} | tr / -)" >> $GITHUB_ENV
     - name: echo
       run: echo ${{ env.BRANCH }}
