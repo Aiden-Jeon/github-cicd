@@ -1,27 +1,30 @@
-name: "Action on PR Comment"
+name: Deploy on comment
 
 on:
-  pull_request:
-    types: [opened]
   issue_comment:
-    types: [created]
+    types:
+    - created
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    if: ${{ github.event.issue.pull_request && github.event.comment.body == '/deploy'}}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - uses: khan/pull-request-comment-trigger@v1.1.0
-        id: check
+    - name: Get PR SHA
+      id: sha
+      uses: actions/github-script@v4
+      with:
+        result-encoding: string
+        script: |
+          const { owner, repo, number } = context.issue;
+          const pr = await github.pulls.get({
+            owner,
+            repo,
+            pull_number: number,
+          });
+          return pr.data.head.sha
+      - uses: actions/checkout@v2
         with:
-          trigger: '!deploy'
-          reaction: rocket
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - uses: thollander/actions-comment-pull-request@v1
-        if: steps.check.outputs.triggered == 'true'
-        name: Comment PR
-        with:
-          message: |
-            Hello world ! :wave:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ steps.sha.outputs.result }}
+      - name: Run deployment
+        run: echo "Hello World!"
