@@ -14,5 +14,10 @@ jobs:
           reaction: rocket
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
-      - run: 'echo Found it!'
+      - uses: thollander/actions-comment-pull-request@v1
         if: steps.check.outputs.triggered == 'true'
+        name: Comment PR
+        with:
+          message: |
+            Hello world ! :wave:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
